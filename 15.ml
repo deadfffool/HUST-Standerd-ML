@@ -44,15 +44,13 @@ fun getIntInfTable ( 0 ) = []
   | getIntInfTable ( N:int) = getIntInf()::getIntInfTable(N-1);
 
 (*****Begin*****)
-val num = getInt();
-val name = getIntTable(num);
-val order = getIntTable(num);
-val list = ListPair.zip(name, order);
-val input = getInt();
+val n = getInt();
+val t1 = getIntTable(n);
+val t2 = getIntTable(n);
+val pa = ListPair.zip(t1,t2);
 fun findList([], n) = 0 
     |findList((x1,x2) :: xs, n) = 
     if(x2 = n) then x1
-    else findList (xs, n)
-val ans = findList(list, input);
-printInt(ans);
+    else findList (xs, n);
+printInt(findList(pa,getInt()));
 (*****End*****)

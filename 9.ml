@@ -23,17 +23,19 @@ fun getReal () =
 (*****Begin*****)
 val m = getInt();
 val n = getInt();
-val p = n - m;
-fun makeList (0, m) = []
-    | makeList(p, m) =
-        m :: makeList(p - 1, m + 1);
-fun printList([]) = ()
-    | printList(x :: xs) =
-    let 
-val a = printInt(x)
+fun table(m:int,n:int) = 
+    if m > n then []
+    else m :: table(m+1,n);
+
+fun printIntTable ( [] ) = ()
+  | printIntTable ( x::xs ) = 
+    let
+	val tmp = printInt(x)
     in
-printList(xs)
+	printIntTable(xs)
     end;
-printList(makeList(p + 1, m));
+
+printIntTable(table(m,n));
+
 (*****End*****)
 
