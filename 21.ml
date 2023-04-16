@@ -55,17 +55,6 @@ val k = getReal();
 val sum = ref 0.0;
 val n = ref 1;
 if k < 2.0 then printInt(2)
-else
-    let val t = 0
-    in
-    while (!sum < k)
-    do 
-        let val t = 0
-        in
-        sum := !sum + 1.0 / real(!n);
-        n := !n + 1
-        end;
-    printInt(!n - 1)
-    end;
+else (while (!sum < k)  do  (sum := !sum + 1.0 / real(!n) ; n := !n + 1);printInt(!n - 1));
 (*****End*****)
 

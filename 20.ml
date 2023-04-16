@@ -63,8 +63,7 @@ fun cross(x2 : int, y2 : int, i : int, j : int) =
     (i = x2 - 1 andalso (j = y2 - 2 orelse j = y2 + 2)) orelse
     (i = x2 + 1 andalso (j = y2 - 2 orelse j = y2 + 2)) orelse
     (i < 0 orelse j < 0) then 0
-    else if (j = 0 andalso i > 0) orelse
-    (i = 0 andalso j > 0) then 1
+    else if (j = 0 andalso i = 0)  then 1
     else cross(x2, y2, i - 1, j) + cross(x2, y2, i, j - 1);
 printInt(cross(x2, y2, x1, y1));
 (*****End*****)
